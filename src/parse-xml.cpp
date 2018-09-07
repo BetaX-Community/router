@@ -105,9 +105,9 @@ void YourManager::complete_relation(const osmium::Relation& relation) noexcept {
   out_file << "  zoom: 13," << std:: endl;
   out_file << "  center: {lat: -18.9, lng: 47.5}," << std:: endl;
   out_file << "  mapTypeId: google.maps.MapTypeId.TERRAIN" << std:: endl;
-  out_file << "});";
+  out_file << "});" << std::endl;
 
-  int i = 1;
+  int i = 1, j = 1;
 
   // Iterate over all members
   for (const auto& member : relation.members()) {
@@ -122,6 +122,13 @@ void YourManager::complete_relation(const osmium::Relation& relation) noexcept {
       if (node != nullptr) {
 	std::cout << node->tags().get_value_by_key("name", "") << " " << member.role();
 	std::cout << "(" << node->location().lon() << ", " << node->location().lat() << ")" << std::endl;
+	
+	out_file << "var marker_" << j << " = new google.maps.Marker({\n";
+	out_file << "  position: new google.maps.LatLng(" << node->location().lat() << ", " << node->location().lon() << "),\n";
+	out_file << "  title: \"" << node->tags().get_value_by_key("name", "") << "\"\n";
+	out_file << "});\n";
+	out_file << "marker_" << j << ".setMap(map);\n";
+	++j;
       }
       const osmium::Way* way           = this->get_member_way(member.ref());
       if (way != nullptr) {
