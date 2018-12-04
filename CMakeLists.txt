@@ -34,3 +34,8 @@ add_executable(parse-xml src/parse-xml.cpp)
 set_pthread_on_target(parse-xml)
 target_link_libraries(parse-xml ${OSMIUM_IO_LIBRARIES} pthread z expat bz2)
 TARGET_LINK_LIBRARIES(parse-xml LINK_PUBLIC ${Boost_LIBRARIES} )
+
+add_executable(list-bus-stop src/list-bus-stop.cpp)
+set_pthread_on_target(list-bus-stop)
+target_link_libraries(list-bus-stop ${OSMIUM_IO_LIBRARIES} pthread z expat bz2)
+TARGET_LINK_LIBRARIES(list-bus-stop LINK_PUBLIC ${Boost_LIBRARIES} )
