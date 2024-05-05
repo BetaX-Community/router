@@ -19,7 +19,11 @@ parse-xml : Parse the result of Overpass API to draw the path of each bus line i
 
 * Build
 
-mkdir build; cd build; cmake ..; make
+```sh
+cd build
+cmake ..
+make
+```
 
 * Run
 
@@ -33,6 +37,7 @@ mkdir build; cd build; cmake ..; make
 
 # Project structure
 
+```
 README.md
 CMakeLists.txt
 cmake/
@@ -42,5 +47,7 @@ src/
   overpass-api.cpp
   overpass-api.h
   parse-xml.cpp
+  test-json.cpp
 build/
 data/
+```
