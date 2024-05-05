@@ -39,3 +39,13 @@ add_executable(list-bus-stop src/list-bus-stop.cpp)
 set_pthread_on_target(list-bus-stop)
 target_link_libraries(list-bus-stop ${OSMIUM_IO_LIBRARIES} pthread z expat bz2)
 TARGET_LINK_LIBRARIES(list-bus-stop LINK_PUBLIC ${Boost_LIBRARIES} )
+
+set(JSON_BuildTests OFF CACHE INTERNAL "")
+
+add_subdirectory(nlohmann/json)
+
+add_executable(test-json src/test-json.cpp)
+set_pthread_on_target(test-json)
+target_link_libraries(test-json ${OSMIUM_IO_LIBRARIES} pthread z expat bz2)
+
+target_link_libraries(test-json PRIVATE nlohmann_json::nlohmann_json)

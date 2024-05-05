@@ -125,7 +125,7 @@ void YourManager::complete_relation(const osmium::Relation& relation) noexcept {
 	
 	out_file << "var marker_" << j << " = new google.maps.Marker({\n";
 	out_file << "  position: new google.maps.LatLng(" << node->location().lat() << ", " << node->location().lon() << "),\n";
-	out_file << "  title: \"" << node->tags().get_value_by_key("name", "") << "\"\n";
+	out_file << "  title: \"" << j << " " << node->tags().get_value_by_key("name", "") << "\"\n";
 	out_file << "});\n";
 	out_file << "marker_" << j << ".setMap(map);\n";
 	++j;
