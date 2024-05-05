@@ -23,9 +23,13 @@ mkdir build; cd build; cmake ..; make
 
 * Run
 
-./overpass-api -b <lat min> -a <lon min> -d <lat max> -c <lon max> -f <file name>
+```sh
+./overpass-api -a <lon min> -b <lat min> -c <lon max> -d <lat max> -f <output file name>
 
 ./parse-xml <file name>
+
+./test-json <file name>
+```
 
 # Project structure
 
