@@ -8,7 +8,7 @@ Suggest one or more bus line(s) to user from geolocation
 # Executables
 
 overpass-api : Request Overpass API for ways and nodes relative to each bus route
-parse-xml : Pase the result of Overpass API to draw the path of each bus line in a map
+parse-xml : Parse the result of Overpass API to draw the path of each bus line in a map
 
 # Usage
 
