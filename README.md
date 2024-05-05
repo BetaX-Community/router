@@ -5,10 +5,11 @@ BetaX router
 
 Suggest one or more bus line(s) to user from geolocation
 
-# Executables
+# Binaries
 
 overpass-api : Request Overpass API for ways and nodes relative to each bus route
 parse-xml : Parse the result of Overpass API to draw the path of each bus line in a map
+test-json: Transform the XML data from Overpass API into JSON format
 
 # Usage
 
@@ -27,12 +28,19 @@ make
 
 * Run
 
+> Assuming that you want to store the generated data in `data/` directory.
+
+> The binaries are prefixed with `../build` here but you can add the
+`build/` directory into your `PATH` as well.
+
 ```sh
-./overpass-api -a <lon min> -b <lat min> -c <lon max> -d <lat max> -f <output file name>
+cd data
 
-./parse-xml <file name>
+../build/overpass-api -a <lon min> -b <lat min> -c <lon max> -d <lat max> -f <output file name>
 
-./test-json <file name>
+../build/parse-xml <file name>
+
+../build/test-json <file name>
 ```
 
 # Project structure
